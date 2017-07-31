@@ -1,8 +1,9 @@
 Documentation for Musskema.dk API
+--------------------
 
 API is located at [https://api.secure2.musskema.dk](https://api.secure2.musskema.dk) if you find any errors in the documentation you are welcome to create a pull request or simply create a issue on Github.
 
-Contributors
+Documentation was made with Slate
 --------------------
 
 Slate was built by [Robert Lord](https://lord.io) while interning at [TripIt](https://www.tripit.com/).
@@ -16,8 +17,8 @@ Thanks to the following people who have submitted major pull requests:
 
 Also, thanks to [Sauce Labs](http://saucelabs.com) for sponsoring the development of the responsive styles.
 
-Special Thanks
---------------------
+Special thanks to these other nice projects:
+
 - [Middleman](https://github.com/middleman/middleman)
 - [jquery.tocify.js](https://github.com/gfranko/jquery.tocify.js)
 - [middleman-syntax](https://github.com/middleman/middleman-syntax)
