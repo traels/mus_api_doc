@@ -3,15 +3,16 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://secure2.musskema.dk/signup'>Sign Up for a Demo Account</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - employees
+  - teams
+  - departments
+  - sickness
   - errors
 
 search: true
@@ -19,221 +20,85 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Musskema.dk API documentation. To access the API you need to have a company on Musskema.dk and have the API access token for that company.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The API allows you to maintain employees, teams, departments and sickness absense data so you can have your ERP, HR or whatever other tool sync its data to Musskema.dk.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+## One-way sync
 
-# Authentication
+We have simplified the world a bit by only allowing one-way syncronisation. When you enable API sync for a part of Musskema.dk that part will no longer be available to users on the site. If you setup syncronisation of employees then employees will no longer be able to change name, username or other profile data.
 
-> To authorize, use this code:
+## Unique ID's
 
-```ruby
-require 'kittn'
+> Default response for an employee
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```json
+{
+  "name": "Jane Doe",
+  "id": "123",
+  "email": "jd@mail.tld",
+  "ext_id": "ABC1",
+  "username": "jd",
+  "gender": "f",
+  "birthday": "1979-09-11"
+}
 ```
 
-```python
-import kittn
+> Response with key_field=ext_id
 
-api = kittn.authorize('meowmeowmeow')
+```json
+{
+  "name": "Jane Doe",
+  "id": "ABC1",
+  "email": "jd@mail.tld",
+  "username": "jd",
+  "gender": "f",
+  "birthday": "1979-09-11"
+}
 ```
+
+Everything has a external ID (ext_id) field that is for you to use. This way you can attach your identifier to the data when creating it - making it easier when you need to find it again and update it.
+
+Default data from API includes both Musskema.dk ID and external ID on everything. You can change that by a simple param on the URL.
+
+`http://api.secure2.musskema.dk/v2/teams?key_field=ext_id`
+
+This will remove the ext_id from the data and use the value from ext_id in the returned id field.
+
+<aside class="success">
+When the API tells you to give it an ID you can use either Musskema.dk ID value or your own ext_id value!
+</aside>
+
+## Authentication
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl -v -H 'Content-Type: application/json'
+ -H 'company_id: 10238497'
+ -H 'access_token: 01298347edf923874a'
+ -X GET 'https://api.secure2.musskema.dk/v2/core/departments'
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure to replace `01298347edf923874a` with your API key and `10238497` with your company id.
 
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Authentication is done by HTTP headers. You must supply both company_id and access_token headers.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+The API access token is created by our support team at info@musskema.dk.
 </aside>
 
-# Kittens
+## Build your organisation
 
-## Get All Kittens
+The organisation in Musskema.dk consists of a tree of departments with team as the leafs. Departments holds nothing but managers, employees are working from the teams.
 
-```ruby
-require 'kittn'
+## What the API can do
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+**You can use the API in 2 ways:**
 
-```python
-import kittn
+ * creating and updating employees - this is the minimum
+ * create organisation structure and place employees in teams - this is optional, without this organisation is created from within Musskame.dk
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+**Then there are a few addons:**
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+ * create and delete sickness absense - if your employees are registred as sick in another system you can have the status transfered to Musskema.dk to start a sickness absense dialog
+ * WPA organisation - the workplace assesment is using a organisational structure of its own, it is possible to enable access to this structure from API, to manage departments and teams in WPA
