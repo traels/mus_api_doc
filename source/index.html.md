@@ -61,7 +61,7 @@ Everything has a external ID (ext_id) field that is for you to use. This way you
 
 Default data from API includes both Musskema.dk ID and external ID on everything. You can change that by a simple param on the URL.
 
-`http://api.secure2.musskema.dk/v2/teams?key_field=ext_id`
+`https://api.secure2.musskema.dk/v2/teams?key_field=ext_id`
 
 This will remove the ext_id from the data and use the value from ext_id in the returned id field.
 

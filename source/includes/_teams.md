@@ -12,6 +12,14 @@ Team has a lot of relations, they are returned as ID's. Default is Musskema.dk I
  * employees
  * responsible_employee
 
+## About employees in teams
+
+An employee can ONLY be in one team, if you insert the same employee in more teams he will just be moved to the last team you insert him into.
+<aside class="warning">
+As all dialogs in Musskema.dk is connected between teams and the manager of the team it is important that employee is placed in correct team!
+</aside>
+
+
 ## Get all teams
 
 ```shell
