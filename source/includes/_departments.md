@@ -13,7 +13,7 @@ Department has relations to other departments and to managers, they are returned
 ## Get all departments
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X GET 'https://api.secure2.musskema.dk/v2/core/departments'
 ```
@@ -52,7 +52,7 @@ page | 1 | Request more departments
 ## Get a specific department
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X GET 'https://api.secure2.musskema.dk/v2/core/departments/123789'
 ```
@@ -83,7 +83,7 @@ ID | The ID of the department - either Musskem.dk ID or your own ID (ext_id)
 ## Create a department
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -d '{"department":{"name":"New department","parent_department":"1234G43Z","ext_id":"007"}}'
  -X GET 'https://api.secure2.musskema.dk/v2/core/departments'
@@ -134,7 +134,7 @@ If everyting works out the response will be with HTTP header 201 - Created, alon
 ## Update a department
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: CID'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: CID'
  -H 'access_token: token'
  -d '{"department":{"name":"Updated department"}}'
  -X PUT 'https://api.secure2.musskema.dk/v2/core/departments/123789'```
@@ -181,7 +181,7 @@ Moving a department - and the organisation branch below it - is as simple as jus
 ## Delete a department
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X PUT 'https://api.secure2.musskema.dk/v2/core/departments/123'
 ```

@@ -73,7 +73,7 @@ When the API tells you to give it an ID you can use either Musskema.dk ID value 
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -v -H 'Content-Type: application/json'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: 10238497'
  -H 'access_token: 01298347edf923874a'
  -X GET 'https://api.secure2.musskema.dk/v2/core/departments'

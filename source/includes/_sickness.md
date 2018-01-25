@@ -7,7 +7,7 @@ Automating this with the API is only really usefull if you already have a system
 ## Report employee sick
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: CID'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: CID'
  -H 'access_token: token'
  -d '{"employee":"708","date":"2016-12-24"}'
  -X POST 'https://api.secure2.musskema.dk/v2/siab/dialogs'
@@ -35,7 +35,7 @@ An employee can not be reported sick, when he or she is already reported sick. T
 ## Report employee fit
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: CID'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: CID'
  -H 'access_token: token'
  -d '{"employee":"708","date":"2016-12-24"}'
  -X DELETE 'https://api.secure2.musskema.dk/v2/siab/dialogs'

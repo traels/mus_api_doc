@@ -12,7 +12,7 @@ Even when an employee is deleted the username is reserved for that employee. 14 
 ## Get all employees
 
 ```shell
-curl -v -H 'Content-Type: application/json'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X GET 'https://api.secure2.musskema.dk/v2/core/employees'
@@ -58,7 +58,7 @@ page | 1 | Request more employees
 ## Get a specific employee
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X GET 'https://api.secure2.musskema.dk/v2/core/employees/123B'
 ```
@@ -91,7 +91,7 @@ ID | The ID of the employee - either Musskem.dk ID or your own ID (ext_id)
 ## Create an employee
 
 ```shell
-curl -v -H 'Content-Type: application/json'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -d '{"employee":{"email":"e@mail.tld","username":"agent","name":"James Bond","ext_id":"123"}}'
@@ -180,7 +180,7 @@ Alongside that will be a JSON response with the newly created employees data.
 ## Update an employee
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -d '{"employee":{"username":"agent","name":"James Bond","ext_id":"1234987"}}'
  -X POST 'https://api.secure2.musskema.dk/v2/core/employees/321'
@@ -230,7 +230,7 @@ employment | no | String with title/name of employment.
 ## Delete an employee
 
 ```shell
-curl -v -H 'Content-Type: application/json'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X DELETE 'https://api.secure2.musskema.dk/v2/core/employees/321'

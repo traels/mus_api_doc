@@ -23,7 +23,7 @@ As all dialogs in Musskema.dk is connected between teams and the manager of the 
 ## Get all teams
 
 ```shell
-curl -v -H 'Content-Type: application/json'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X GET 'https://api.secure2.musskema.dk/v2/core/teams'
@@ -72,7 +72,7 @@ page | 1 | Request more teams
 ## Get a specific team
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X GET 'https://api.secure2.musskema.dk/v2/core/teams/234'
 ``
@@ -106,7 +106,7 @@ ID | The ID of the team - either Musskem.dk ID or your own ID (ext_id)
 ## Create a team
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -d '{"team":{"name":"ABC","department":"12332","employees":["123","321"],"responsible_employee":"321","ext_id":"101"}}'
  -X POST 'https://api.secure2.musskema.dk/v2/core/teams'
@@ -166,7 +166,7 @@ If everyting works out the response will be with HTTP header 201 - Created, alon
 ## Update a specific team
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -d '{"team":{"name":"ABC","department":"12332","employees":["123","321"]}}'
  -X PUT 'https://api.secure2.musskema.dk/v2/core/teams/123'
@@ -224,7 +224,7 @@ The list of employees is a full list - so if you want to add an employee to the 
 ## Delete a team
 
 ```shell
-curl -v -H 'Content-Type: application/json' -H 'company_id: <CID>'
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
  -X PUT 'https://api.secure2.musskema.dk/v2/core/teams/123'
 ```
