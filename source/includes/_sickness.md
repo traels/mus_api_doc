@@ -4,6 +4,39 @@ When an employee is calling in sick you start a sickness absense, which will pro
 
 Automating this with the API is only really usefull if you already have a system for managing sickness absense.
 
+## Get all sick employees
+
+```shell
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
+ -H 'company_id: <CID>'
+ -H 'access_token: <TOKEN>'
+ -X GET 'https://api.secure2.musskema.dk/v2/siab/dialogs'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": "123",
+    "name": "ABC",
+    "date": "2018-01-03",
+
+  },
+  {
+    "id": "123B",
+    "name": "DEF",
+    "date": "2018-02-03",
+  }
+]
+```
+
+This gives you all sick employees, their employee ID and the date they were reported sick.
+
+### HTTP Request
+
+`GET https://api.secure2.musskema.dk/v2/siab/dialogs`
+
 ## Report employee sick
 
 ```shell
@@ -31,6 +64,44 @@ You can not report an employee sick without the employee being in a team. Withou
 <aside class="notice">
 An employee can not be reported sick, when he or she is already reported sick. Trying to do so will give an error.
 </aside>
+
+## Update sick date
+
+```shell
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'company_id: CID'
+ -H 'access_token: token'
+ -d '{"date":"2019-12-24"}'
+ -X PATCH 'https://api.secure2.musskema.dk/v2/siab/dialogs/708'
+```
+
+> Example of JSON data to update first day of sickleave
+
+```json
+{
+  "date": "2019-12-24"
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": "708",
+  "name": "ABC",
+  "date": "2019-12-24",
+}
+```
+
+### HTTP Request
+
+`GET https://api.secure2.musskema.dk/v2/siab/dialogs/<EMPLOYEE_ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the employee - either Musskem.dk ID or your own ID (ext_id)
+
 
 ## Report employee fit
 
