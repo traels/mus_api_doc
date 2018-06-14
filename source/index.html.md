@@ -13,6 +13,7 @@ includes:
   - teams
   - departments
   - sickness
+  - sickness_v3_draft
   - errors
 
 search: true
