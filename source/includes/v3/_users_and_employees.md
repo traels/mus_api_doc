@@ -30,8 +30,11 @@
 }]
 ```
 
-It might be a bit confusing with both users and employees - but there is a reason for it. In many larger organisations there are users with multiple employments, one physical person is employeed in multiple different departments.
+Everybody in a company is an employee - no matter your privileges or permissions you are first and foremost an employee.
 
-Employee Jens Hansen with ID 1234e can be placed in a team. The other employee with ID 5678e is the same physical person - the same user - and can now be placed in another team. (See data in right side of page.)
+Employees are not users! That might sound strange, but some people have multiple employments within the same organisation - each of those is an employee, but all of a persons employments are connected to the same user to only have one username and password.
 
-In Musskema.dk the user is just the person logging in. The employee is the entity placed in teams where all conversation data is attached to. Users with multiple employees will be asked to select employee when logging in.
+The employee is the entity that receives permissions to do things in the system, and is also where conversational data is kept. Delete an employee and the person will no longer have access to data.
+
+### Example data -> see right side
+Employee Jens Hansen with ID 1234e can be placed in a team. The other employee with ID 5678e is the same physical person - the same user - and can now be placed in another team.
