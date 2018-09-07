@@ -1,6 +1,11 @@
-# Sickness absense V3 - DRAFT
+# Sickness absense
 
-> THIS IS JUST A DRAFT - EXPECTED TO BE PRODUCTION READY END OF Q3 2018
+This is a bit of a special endpoint. There are a lot of logic in Musskema.dk around sickness absence, so to help you we have made just one endpoint for registering sickness absence. You will not need to worry about keeping track of periods in you end, we will detect overlapping periods and decide if you data should update existing or create new absence period.
+
+### Not everything can be handled, so a few rules to start with:
+
+ - employee **must** be in team to be reported sick
+ - if you supply a date range that overlaps multiple existing periods you will get an error 
 
 ## Report employee sick and fit
 
@@ -85,7 +90,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 * If you create a new absence period that overlaps a period on the employee
  * end date will be updated if you have supplied one
- * start date will be updated if
+ * start date will be updated if (either A or B below)
  * **A:** it is before the start date on absence that it overlaps (expanding the period)
  * **B:** you have supplied the exact same end date as the absence it overlaps (then contracting the period)
 * If you create a new absence period on the day after employee has been reported fit this is also considered an overlap, and will simply just extend that absence period.
