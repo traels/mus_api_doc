@@ -15,6 +15,7 @@ includes:
   - v2/teams
   - v2/departments
   - v3/sickness
+  - v3/pagination
   - v2/errors
 
 search: true

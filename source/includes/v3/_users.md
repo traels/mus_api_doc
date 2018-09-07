@@ -77,7 +77,7 @@ email | Valid e-mail address | No
 username | Unique username | No
 id | Your ID for user | No  
 
-## Destroy user
+## Delete user
 
 ```shell
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
@@ -147,5 +147,4 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 <b>GET</b> https://api.secure2.musskema.dk/v3/core/users
 </aside>
 
- - 25 users returned per page.
- - you can set query param page to get next page, eg. /v3/core/users?page=2
+[List is paginated](#pagination)
