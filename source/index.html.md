@@ -11,7 +11,7 @@ toc_footers:
 includes:
   - v3/users_and_employees
   - v3/users
-  - v2/employees
+  - v3/employees
   - v2/teams
   - v2/departments
   - v3/sickness
