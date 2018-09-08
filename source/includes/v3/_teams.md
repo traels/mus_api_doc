@@ -110,6 +110,10 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 Deleting a team is a permanent and very destructive action. Conversational data in Musskema.dk connects leaders and employes through the team - deleting the team makes the data associated with it unavailable to the leader.
 </aside>
 
+<aside class="notice">
+In order to prevent accidential deletes a team can only be deleted when there are no employees in it.
+</aside>
+
 ## Show team
 
 ```shell
