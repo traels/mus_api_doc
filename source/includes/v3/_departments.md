@@ -89,6 +89,23 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 In order to prevent accidential deletes a department can only be deleted when there are no departments or teams attached to it.
 </aside>
 
+## Move department
+
+```shell
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
+ -H 'company_id: <CID>'
+ -H 'access_token: <TOKEN>'
+ -X PATCH 'https://api.secure2.musskema.dk/v3/core/departments/D11/departments/D987'
+```
+
+> HTTP 200 OK
+
+<aside class="success">
+<b>PATCH</b> https://api.secure2.musskema.dk/v3/{core|wpa}/departments/{department_id}/departments/{id}
+</aside>
+
+Moves department {id} below department {department_id}. You can not move a department below it self.
+
 ## Show department
 
 ```shell

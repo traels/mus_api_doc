@@ -114,6 +114,23 @@ Deleting a team is a permanent and very destructive action. Conversational data 
 In order to prevent accidential deletes a team can only be deleted when there are no employees in it.
 </aside>
 
+## Move team
+
+```shell
+curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
+ -H 'company_id: <CID>'
+ -H 'access_token: <TOKEN>'
+ -X PATCH 'https://api.secure2.musskema.dk/v3/core/departments/D11/teams/A11111'
+```
+
+> HTTP 200 OK
+
+<aside class="success">
+<b>PATCH</b> https://api.secure2.musskema.dk/v3/{core|wpa}/departments/{department_id}/teams/{id}
+</aside>
+
+Moves team to chosen department.
+
 ## Show team
 
 ```shell
