@@ -6,7 +6,7 @@
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"user":{"name":"The A Team","owner":"78765","id":"A11111"}}'
+ -d '{"team":{"name":"The A Team","owner":"78765","id":"A11111"}}'
  -X POST 'https://api.secure2.musskema.dk/v3/core/departments/D9/teams'
 ```
 
@@ -47,7 +47,7 @@ id | Your ID for team | Yes
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"user":{"name":"The A Team","owner":"78765","id":"A1"}}'
+ -d '{"user":{"team":"The A Team","owner":"78765","id":"A1"}}'
  -X PATCH 'https://api.secure2.musskema.dk/v3/core/teams/A11111'
 ```
 
