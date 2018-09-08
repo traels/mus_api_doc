@@ -12,8 +12,9 @@ includes:
   - v3/users_and_employees
   - v3/users
   - v3/employees
-  - v2/teams
-  - v2/departments
+  - v3/organisation
+  - v3/teams
+  - v3/departments
   - v3/sickness
   - v3/pagination
   - v2/errors
@@ -72,10 +73,6 @@ All resources expect data to be wrapped in an outer structure, named after the r
 All requests should have _accept_ and _content-type_ headers set to __application/json__. 
 
 See example on right side of page, for both headers and data.
-
-## Build your organisation
-
-The organisation in Musskema.dk consists of a tree of departments with team as the leafs. Departments holds nothing but managers, employees are working from the teams.
 
 ## What the API can do
 
