@@ -23,7 +23,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-<aside class="notice">
+<aside class="success">
 <b>POST</b> https://api.secure2.musskema.dk/v3/core/users
 </aside>
 
@@ -61,7 +61,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-<aside class="notice">
+<aside class="success">
 <b>PATCH</b> https://api.secure2.musskema.dk/v3/core/users/{id}
 </aside>
 
@@ -88,7 +88,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 > HTTP 200 OK
 
-<aside class="notice">
+<aside class="success">
 <b>DELETE</b> https://api.secure2.musskema.dk/v3/core/users/{id}
 </aside>
 
@@ -117,7 +117,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 }
 ```
 
-<aside class="notice">
+<aside class="success">
 <b>GET</b> https://api.secure2.musskema.dk/v3/core/users/{id}
 </aside>
 
@@ -143,7 +143,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 }]
 ```
 
-<aside class="notice">
+<aside class="success">
 <b>GET</b> https://api.secure2.musskema.dk/v3/core/users
 </aside>
 
