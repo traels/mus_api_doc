@@ -8,82 +8,25 @@ toc_footers:
   - <a href='https://secure2.musskema.dk/signup'>Sign Up for a Demo Account</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
-includes:
-  - v3/users_and_employees
-  - v3/users
-  - v3/employees
-  - v3/organisation
-  - v3/teams
-  - v3/team_employees
-  - v3/departments
-  - v3/delegations
-  - v3/sickness
-  - v3/pagination
-  - v2/errors
-
-search: true
+search: false
 ---
 
-# Introduction
+# Welcome
 
-Welcome to the Musskema.dk API v3 documentation. To access the API you need to have a company on Musskema.dk and have the API access token for that company.
+Welcome to the Musskema.dk API documentation. To access the API you need to have a company on Musskema.dk and have the API access token for that company.
 
 The API allows you to maintain employees, teams, departments and sickness absense data so you can have your ERP, HR or whatever other tool sync its data to Musskema.dk.
 
-If you are still using API v2 please consider upgrading. <a href="/v2.html">Documentation for Musskema.dk API v2 can be found here!</a>
+## Version 3
 
-## What the API can do
+API v3 is the newest version, and the one we suggest all customers to use.
 
-**You can use the API in 2 ways:**
+[Documentation for Musskema.dk API v3](/v3.html)
 
- * creating and updating users and employees - this is the minimum
- * create organisation structure and place employees in teams - this is optional, without this organisation is created from within Musskame.dk
+## Version 2
 
-**Then there are a few addons:**
+**If you are still on API v2 we suggest you look into upgrading.**
 
- * create and delete sickness absense - if your employees are registred as sick in another system you can have the status transfered to Musskema.dk to start a sickness absense dialog
- * WPA organisation - the workplace assesment is using a organisational structure of its own, it is possible to enable access to this structure from API, to manage departments and teams in WPA. The API endpoints are the same as for creating the main organisation.
+The new API is a lot let confusing to use (multiple employments and rehiring employees no longer require using exact same data as when creating) and the new sickness absence endpoint will handle a lot of the complexity about absence periods that v2 currently requires you to handle.
 
-## One-way sync
-
-We have simplified the world a bit by only allowing one-way syncronisation. When you enable API sync for a part of Musskema.dk that part will no longer be available to users on the site. If you setup syncronisation of employees then employees will no longer be able to change name, username or other profile data.
-
-## Unique ID's
-
-All resources in Musskema.dk requires __you__ to supply an ID. This should make it easier to integrate to Musskema.dk as you can use your own ID number/string to identify resources. Everywhere you see ID in this documentation it refers to a value you have supplied.
-
-As the section header suggests it should be an unique ID within the data-type. There can not be two users with same ID, but you could have both user and a team with same ID.
-
-## Authentication
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
- -H 'company_id: 10238497'
- -H 'access_token: 01298347edf923874a'
- -X GET 'https://api.secure2.musskema.dk/v3/core/departments'
-```
-
-> Make sure to replace `01298347edf923874a` with your API key and `10238497` with your company id.
-
-Authentication is done by HTTP headers. You must supply both company_id and access_token headers.
-
-<aside class="notice">
-The API access token is created by our support team at info@musskema.dk.
-</aside>
-
-## JSON data and headers
-
-```shell
-curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
- -H 'company_id: 10238497'
- -H 'access_token: 01298347edf923874a'
- -d '{"user":{"name":"Jane Doe","gender":"f","birthday":"1989-09-13","email":"jane@mail.tld","username":"user_1_name","id":"78765"}}'
- -X POST 'https://api.secure2.musskema.dk/v3/core/users'
-```
-
- - all data returned from API is in Unicode UTF-8 encoded JSON. We expect to receive data in same format and encoding.
- - all resources expect data to be wrapped in an outer structure, named after the resource you are creating/updating.
- - all requests should have _accept_ and _content-type_ headers set to __application/json__. 
-
-See example on right side of page, for both headers and data.
+[Documentation for Musskema.dk API v2](/v2.html)
