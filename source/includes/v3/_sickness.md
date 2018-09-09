@@ -39,6 +39,11 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   }
 }
 ```
+
+<aside class="success">
+<b>POST</b> https://api.secure2.musskema.dk/v3/siab/dialogs
+</aside>
+
 <aside class="notice">
 You can not report an employee sick without the employee being in a team. Without a team Musskema.dk does not know who the employees leader is, and can not start a dialog between employee and leader.
 </aside>
