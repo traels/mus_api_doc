@@ -6,4 +6,4 @@ The organisation in Musskema.dk consists of a tree of departments with team as t
 
 ## Teams are handles to data
 
-As menthined [employees](#users-and-employees) is the handle to data, so deleting an employee will remove data even though the user is still in Musskema.dk. In the same way the **team** is the handle the leader has to data between him and the employee. If you delete the team all dialog data on that team will be inaccessible to the leader.
+As mentioned [employees](#users-and-employees) is the handle to data, so deleting an employee will remove data even though the user is still in Musskema.dk. In the same way the **team** is the handle the leader has to data between him and the employee. If you delete the team all dialog data on that team will be inaccessible to the leader.
