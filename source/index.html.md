@@ -31,6 +31,18 @@ The API allows you to maintain employees, teams, departments and sickness absens
 
 If you are still using API v2 please consider upgrading. <a href="/v2.html">Documentation for Musskema.dk API v2 can be found here!</a>
 
+## What the API can do
+
+**You can use the API in 2 ways:**
+
+ * creating and updating users and employees - this is the minimum
+ * create organisation structure and place employees in teams - this is optional, without this organisation is created from within Musskame.dk
+
+**Then there are a few addons:**
+
+ * create and delete sickness absense - if your employees are registred as sick in another system you can have the status transfered to Musskema.dk to start a sickness absense dialog
+ * WPA organisation - the workplace assesment is using a organisational structure of its own, it is possible to enable access to this structure from API, to manage departments and teams in WPA. The API endpoints are the same as for creating the main organisation.
+
 ## One-way sync
 
 We have simplified the world a bit by only allowing one-way syncronisation. When you enable API sync for a part of Musskema.dk that part will no longer be available to users on the site. If you setup syncronisation of employees then employees will no longer be able to change name, username or other profile data.
@@ -38,6 +50,8 @@ We have simplified the world a bit by only allowing one-way syncronisation. When
 ## Unique ID's
 
 All resources in Musskema.dk requires __you__ to supply an ID. This should make it easier to integrate to Musskema.dk as you can use your own ID number/string to identify resources. Everywhere you see ID in this documentation it refers to a value you have supplied.
+
+As the section header suggests it should be an unique ID within the data-type. There can not be two users with same ID, but you could have both user and a team with same ID.
 
 ## Authentication
 
@@ -67,22 +81,8 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -X POST 'https://api.secure2.musskema.dk/v3/core/users'
 ```
 
-All data returned from API is in Unicode UTF-8 encoded JSON. We expect to receive data in same format and encoding.
-
-All resources expect data to be wrapped in an outer structure, named after the resource you are creating/updating.
-
-All requests should have _accept_ and _content-type_ headers set to __application/json__. 
+ - all data returned from API is in Unicode UTF-8 encoded JSON. We expect to receive data in same format and encoding.
+ - all resources expect data to be wrapped in an outer structure, named after the resource you are creating/updating.
+ - all requests should have _accept_ and _content-type_ headers set to __application/json__. 
 
 See example on right side of page, for both headers and data.
-
-## What the API can do
-
-**You can use the API in 2 ways:**
-
- * creating and updating users and employees - this is the minimum
- * create organisation structure and place employees in teams - this is optional, without this organisation is created from within Musskame.dk
-
-**Then there are a few addons:**
-
- * create and delete sickness absense - if your employees are registred as sick in another system you can have the status transfered to Musskema.dk to start a sickness absense dialog
- * WPA organisation - the workplace assesment is using a organisational structure of its own, it is possible to enable access to this structure from API, to manage departments and teams in WPA. The API endpoints are the same as for creating the main organisation.
