@@ -15,6 +15,7 @@ includes:
   - v3/organisation
   - v3/teams
   - v3/departments
+  - v3/delegations
   - v3/sickness
   - v3/pagination
   - v2/errors
