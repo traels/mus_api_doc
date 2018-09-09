@@ -14,6 +14,7 @@ includes:
   - v3/employees
   - v3/organisation
   - v3/teams
+  - v3/team_employees
   - v3/departments
   - v3/delegations
   - v3/sickness
