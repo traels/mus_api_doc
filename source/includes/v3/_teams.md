@@ -39,6 +39,7 @@ Creating a team is on an endpoint under departments as this will always require 
 Field | Value | Required
 ------|-------|---------
 name | Name of team | Yes
+owner | ID for employee who owns the team | No
 id | Your ID for team | Yes  
 
 ## Update team
@@ -89,6 +90,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 Field | Value | Required
 ------|-------|---------
 name | Name of team | No
+owner | ID for employee who owns the team | No
 id | Your ID for team | No  
 
 ## Delete team
