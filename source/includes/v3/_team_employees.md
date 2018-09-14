@@ -12,7 +12,7 @@ As mentioned both in [here](#employee-is-the-handle-to-data) and [here](#teams-a
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -X POST 'https://api.secure2.musskema.dk/v3/core/teams/A11111/employees/78765'
+ -X POST 'https://api.secure2.musskema.dk/v3/core/teams/A11111/employees/4711'
 ```
 
 > HTTP 200 OK - with complete team data:
@@ -29,7 +29,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "employees": [
     {
       "employment": "Programmer",
-      "id": "78765",
+      "id": "4711",
       ...
     }
   ],
@@ -51,7 +51,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -X DELETE 'https://api.secure2.musskema.dk/v3/core/teams/A11111/employees/78765'
+ -X DELETE 'https://api.secure2.musskema.dk/v3/core/teams/A11111/employees/4711'
 ```
 
 > HTTP 200 OK - with complete team data:
