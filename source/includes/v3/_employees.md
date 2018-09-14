@@ -38,7 +38,7 @@ Creating an employee is on an endpoint under users as this will always require a
 Field | Value | Required
 ------|-------|---------
 employment | Title of employment | No
-id | Your ID for user | Yes  
+id | Your ID for employee | Yes  
 
 ## Update employee
 
