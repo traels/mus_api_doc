@@ -6,7 +6,7 @@
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"department":{"name":"Basement crew","owner":"78765","id":"D987"}}'
+ -d '{"department":{"name":"Basement crew","owner":"4711","id":"D987"}}'
  -X POST 'https://api.secure2.musskema.dk/v3/core/departments/D9/departments'
 ```
 
@@ -18,7 +18,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "D987",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "parent_id": "D9"
@@ -34,7 +34,10 @@ Creating a department is on an endpoint under another department as this will al
 Field | Value | Required
 ------|-------|---------
 name | Name of department | Yes
-id | Your ID for department | Yes  
+owner | ID for employee who owns department | No
+id | Your ID for department | Yes
+
+[Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
 
 ## Update department
 
@@ -54,7 +57,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "D987",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "parent_id": "D9"
@@ -68,7 +71,10 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 Field | Value | Required
 ------|-------|---------
 name | Name of department | No
+owner | ID for employee who owns department | No
 id | Your ID for department | No  
+
+[Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
 
 ## Delete department
 
@@ -123,7 +129,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "D987",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "parent_id": "D9"
@@ -151,7 +157,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "D987",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "parent_id": "D9"

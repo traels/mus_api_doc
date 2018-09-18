@@ -37,7 +37,7 @@ WPA | department_task_report_wpa | Ability to read tasks for employees in depart
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"delegation":{"responsibility":"dialog_access_edp","employee_id":"78765"}}'
+ -d '{"delegation":{"responsibility":"dialog_access_edp","employee_id":"4711"}}'
  -X POST 'https://api.secure2.musskema.dk/v3/core/departments/D9/delegations'
 ```
 
@@ -49,7 +49,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "responsibility": "dialog_access_edp",
   "employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "department|team": {
@@ -101,7 +101,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "responsibility": "dialog_access_edp",
   "employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "department|team": {

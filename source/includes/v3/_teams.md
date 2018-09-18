@@ -42,13 +42,15 @@ name | Name of team | Yes
 owner | ID for employee who owns the team | No
 id | Your ID for team | Yes  
 
+[Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
+
 ## Update team
 
 ```shell
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"user":{"team":"The A Team","owner":"78765","id":"A1"}}'
+ -d '{"user":{"team":"The A Team","owner":"4711","id":"A1"}}'
  -X PATCH 'https://api.secure2.musskema.dk/v3/core/teams/A11111'
 ```
 
@@ -60,7 +62,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "A1",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "employees": [ 
@@ -92,6 +94,8 @@ Field | Value | Required
 name | Name of team | No
 owner | ID for employee who owns the team | No
 id | Your ID for team | No  
+
+[Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
 
 ## Delete team
 
@@ -150,7 +154,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "A1",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "employees": [ 
@@ -194,7 +198,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "A1",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "employees": [ 
