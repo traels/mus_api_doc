@@ -6,7 +6,7 @@
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"team":{"name":"The A Team","owner":"78765","id":"A11111"}}'
+ -d '{"team":{"name":"The A Team","owner":"4711","id":"A11111"}}'
  -X POST 'https://api.secure2.musskema.dk/v3/core/departments/D9/teams'
 ```
 
@@ -18,7 +18,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
   "id": "A11111",
   "responsible_employee": {
     "employment": "Programmer",
-    "id": "78765",
+    "id": "4711",
     ...
   },
   "employees": [],
@@ -50,7 +50,7 @@ id | Your ID for team | Yes
 curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
  -H 'company_id: <CID>'
  -H 'access_token: <TOKEN>'
- -d '{"user":{"team":"The A Team","owner":"4711","id":"A1"}}'
+ -d '{"team":{"name":"The A1 Team","id":"A1"}}'
  -X PATCH 'https://api.secure2.musskema.dk/v3/core/teams/A11111'
 ```
 
@@ -58,7 +58,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 
 ```json
 {
-  "name": "The A Team",
+  "name": "The A1 Team",
   "id": "A1",
   "responsible_employee": {
     "employment": "Programmer",
