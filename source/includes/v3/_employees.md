@@ -76,7 +76,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 Field | Value | Required
 ------|-------|---------
 employment | Title of employment | No
-id | Your ID for user | No  
+id | Your ID for employee | No  
 
 ## Show employee
 

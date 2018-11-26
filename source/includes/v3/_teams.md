@@ -39,7 +39,7 @@ Creating a team is on an endpoint under departments as this will always require 
 Field | Value | Required
 ------|-------|---------
 name | Name of team | Yes
-owner | ID for employee who owns the team | No
+responsible_employee_id | ID for employee who owns the team | No
 id | Your ID for team | Yes  
 
 [Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
@@ -92,7 +92,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 Field | Value | Required
 ------|-------|---------
 name | Name of team | No
-owner | ID for employee who owns the team | No
+responsible_employee_id | ID for employee who owns the team | No
 id | Your ID for team | No  
 
 [Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)

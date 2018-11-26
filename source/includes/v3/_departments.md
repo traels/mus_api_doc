@@ -34,7 +34,7 @@ Creating a department is on an endpoint under another department as this will al
 Field | Value | Required
 ------|-------|---------
 name | Name of department | Yes
-owner | ID for employee who owns department | No
+responsible_employee_id | ID for employee who owns department | No
 id | Your ID for department | Yes
 
 [Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
@@ -71,7 +71,7 @@ curl -v -H 'Content-Type: application/json' -H 'Accept: application/json'
 Field | Value | Required
 ------|-------|---------
 name | Name of department | No
-owner | ID for employee who owns department | No
+responsible_employee_id | ID for employee who owns department | No
 id | Your ID for department | No  
 
 [Read about owner and responsible employee](#owner-responsible-person-on-team-and-departments)
