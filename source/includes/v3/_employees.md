@@ -38,6 +38,7 @@ Creating an employee is on an endpoint under users as this will always require a
 Field | Value | Required
 ------|-------|---------
 employment | Title of employment | No
+system_language | User interface language (en or da), defaults to Danish | No
 id | Your ID for employee | Yes  
 
 ## Update employee
